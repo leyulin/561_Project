@@ -27,7 +27,9 @@ Admin: can do anything
 
 My Database in Nomorilize Form looks Below
 
-![alt text](http://url/to/AnimeCollectionDb.png)
+![alt text](https://github.com/leyulin/561_Project/blob/master/AnimeCollectionDb.png)
+
+
 
 
 
