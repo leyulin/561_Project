@@ -1,0 +1,48 @@
+﻿@page
+@model AnimeCollections.Pages.Animes.DeleteModel
+@{
+    
+}
+<h3>Are you sure you want to Ban this?</h3>
+<div>
+    <h4>User provides Anime:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Anime.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Anime.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Anime.ReleaseDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Anime.ReleaseDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Anime.Genre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Anime.Genre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Anime.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Anime.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Anime.Rating)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Anime.Rating)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Anime.ID" />
+        <input type="submit" value="Permanent Ban" class="btn btn-default" /> |
+        <a asp-page="./Index">Back</a>
+    </form>
+</div>

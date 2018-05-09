@@ -1,0 +1,125 @@
+﻿@page
+@model AnimeCollections.Pages.Animes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form>
+    <p>
+
+        <select asp-for="AnimeGenre" asp-items="Model.Genres">
+            <option value="">All</option>
+        </select>
+        Anime Name: <input type="text" name="SearchString">
+        <input type="submit" value="search" />
+    </p>
+
+
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Anime[0].Title)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Anime[0].ReleaseDate)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Anime[0].Genre)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.PriceSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Anime[0].Price)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.RatingSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Anime[0].Rating)
+                </a>
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Anime[0].Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Anime)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+   
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @if ((await AuthorizationService.AuthorizeAsync(
+                     User, item,
+                     Operations.Update)).Succeeded)
+                    {
+                        <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
+                        <text> | </text>
+                    }
+
+                    <a asp-page="./Details" asp-route-id="@item.ID">Read</a>
+
+                    @if ((await AuthorizationService.AuthorizeAsync(
+                     User, item,
+                     Operations.Delete)).Succeeded)
+                    {
+                        <text> | </text>
+                        <a asp-page="./Delete" asp-route-id="@item.ID">Ban</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.Anime.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Anime.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Anime.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Anime.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
