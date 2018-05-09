@@ -1,33 +1,51 @@
-#561_Project
+**561_Project**
+
 In this project I use asp 2.0 razor page 
 implemented a AnimeCollection site:  http://animecollections20180508060239.azurewebsites.net
 
 For Demo You can use three account below:
 
 Website Manager Account:
-compe561@manager.com
+**compe561@manager.com**
 Qwer1234.
 
 Website Admin Account:
-compe561@admin.com
+**compe561@admin.com**
 Asdf1234.
 
 Website User Account:
-compe561@user.com
+**CompeUser@com**
 Abcd1234.
 
-Fuctionalities For EachRoles
+**Fuctionalities For EachRoles**
 
-User: can see the status, read allowed anime contnet/ info
+**User**: can see the status, read allowed anime contnet/ info
 
-Manger: can decide which cotent is okay for User to see (partent Control)
+**Manger**: can decide which cotent is okay for User to see (partent Control)
 
-Admin: can do anything 
+**Admin**: can do anything 
 
 
 My Database in Nomorilize Form looks Below
 
 ![alt text](https://github.com/leyulin/561_Project/blob/master/AnimeCollectionDb.png)
+
+
+**Challenges**
+I think the biggest change is mutiple DBcontext and inherit for pagemodel 
+When is multiple Dbcontext  have to dotnet ef database update --Context xx
+And DataBase seems Have to use "Unity of Work" to update base only one Dbcontext.
+
+I have very complex 3NF at beginning, but So diffucit to do all contreller.cs and context and database.
+So I change to much simple Forms
+
+Azure is very changelles too, I used dacpac restore to Azure try almost 3 days. and Finally get it work.
+
+
+
+
+
+
 
 
 

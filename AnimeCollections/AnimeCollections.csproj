@@ -9,6 +9,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Properties\PublishProfiles\AnimeCollections20180508053439 - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\AnimeCollections20180508060239 - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\AnimeCollections20180509012104 - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
