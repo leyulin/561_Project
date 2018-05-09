@@ -22,7 +22,6 @@
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAL\" />
     <Folder Include="Authorization\" />
     <Folder Include="Migrations\ApplicationDb\" />
     <Folder Include="Properties\PublishProfiles\" />
