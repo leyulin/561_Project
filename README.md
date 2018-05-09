@@ -25,6 +25,12 @@ Manger: can decide which cotent is okay for User to see (partent Control)
 Admin: can do anything 
 
 
+My Database in Nomorilize Form looks Below
+
+![alt text](http://url/to/AnimeCollectionDb.png)
+
+
+
 
 
 
