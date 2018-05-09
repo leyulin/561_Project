@@ -19,7 +19,9 @@ Abcd1234.
 Fuctionalities For EachRoles
 
 User: can see the status, read allowed anime contnet/ info
+
 Manger: can decide which cotent is okay for User to see (partent Control)
+
 Admin: can do anything 
 
 
