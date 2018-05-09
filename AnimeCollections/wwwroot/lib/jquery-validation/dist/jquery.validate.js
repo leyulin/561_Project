@@ -45,12 +45,12 @@ $.extend($.fn, {
 					validator.submitButton = event.target;
 				}
 
-				// allow suppressing validation by adding a cancel class to the submit button
+				// Allowed suppressing validation by adding a cancel class to the submit button
 				if ( $( this ).hasClass( "cancel" ) ) {
 					validator.cancelSubmit = true;
 				}
 
-				// allow suppressing validation by adding the html5 formnovalidate attribute to the submit button
+				// Allowed suppressing validation by adding the html5 formnovalidate attribute to the submit button
 				if ( $( this ).attr( "formnovalidate" ) !== undefined ) {
 					validator.cancelSubmit = true;
 				}
@@ -136,7 +136,7 @@ $.extend($.fn, {
 			switch ( command ) {
 			case "add":
 				$.extend( existingRules, $.validator.normalizeRule( argument ) );
-				// remove messages from rules, but allow them to be set separately
+				// remove messages from rules, but Allowed them to be set separately
 				delete existingRules.messages;
 				staticRules[ element.name ] = existingRules;
 				if ( argument.messages ) {
@@ -262,7 +262,7 @@ $.extend( $.validator, {
 			}
 		},
 		onfocusout: function( element ) {
-			if ( !this.checkable( element ) && ( element.name in this.submitted || !this.optional( element ) ) ) {
+			if ( !this.checkable( element ) && ( element.name in this.Uploaded || !this.optional( element ) ) ) {
 				this.element( element );
 			}
 		},
@@ -288,17 +288,17 @@ $.extend( $.validator, {
 
 			if ( event.which === 9 && this.elementValue( element ) === "" || $.inArray( event.keyCode, excludedKeys ) !== -1 ) {
 				return;
-			} else if ( element.name in this.submitted || element === this.lastElement ) {
+			} else if ( element.name in this.Uploaded || element === this.lastElement ) {
 				this.element( element );
 			}
 		},
 		onclick: function( element ) {
 			// click on selects, radiobuttons and checkboxes
-			if ( element.name in this.submitted ) {
+			if ( element.name in this.Uploaded ) {
 				this.element( element );
 
 			// or option elements, check parent select in that case
-			} else if ( element.parentNode.name in this.submitted ) {
+			} else if ( element.parentNode.name in this.Uploaded ) {
 				this.element( element.parentNode );
 			}
 		},
@@ -350,7 +350,7 @@ $.extend( $.validator, {
 			this.labelContainer = $( this.settings.errorLabelContainer );
 			this.errorContext = this.labelContainer.length && this.labelContainer || $( this.currentForm );
 			this.containers = $( this.settings.errorContainer ).add( this.settings.errorLabelContainer );
-			this.submitted = {};
+			this.Uploaded = {};
 			this.valueCache = {};
 			this.pendingRequest = 0;
 			this.pending = {};
@@ -403,7 +403,7 @@ $.extend( $.validator, {
 		// http://jqueryvalidation.org/Validator.form/
 		form: function() {
 			this.checkForm();
-			$.extend( this.submitted, this.errorMap );
+			$.extend( this.Uploaded, this.errorMap );
 			this.invalid = $.extend({}, this.errorMap );
 			if ( !this.valid() ) {
 				$( this.currentForm ).triggerHandler( "invalid-form", [ this ]);
@@ -481,7 +481,7 @@ $.extend( $.validator, {
 			if ( $.fn.resetForm ) {
 				$( this.currentForm ).resetForm();
 			}
-			this.submitted = {};
+			this.Uploaded = {};
 			this.lastElement = null;
 			this.prepareForm();
 			this.hideErrors();
@@ -725,7 +725,7 @@ $.extend( $.validator, {
 			});
 
 			this.errorMap[ element.name ] = message;
-			this.submitted[ element.name ] = message;
+			this.Uploaded[ element.name ] = message;
 		},
 
 		addWrapper: function( toToggle ) {
@@ -1192,7 +1192,7 @@ $.extend( $.validator, {
 			// Copyright (c) 2010-2013 Diego Perini, MIT licensed
 			// https://gist.github.com/dperini/729294
 			// see also https://mathiasbynens.be/demo/url-regex
-			// modified to allow protocol-relative URLs
+			// modified to Allowed protocol-relative URLs
 			return this.optional( element ) || /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})).?)(?::\d{2,5})?(?:[/?#]\S*)?$/i.test( value );
 		},
 
@@ -1334,13 +1334,13 @@ $.extend( $.validator, {
 				context: validator.currentForm,
 				success: function( response ) {
 					var valid = response === true || response === "true",
-						errors, message, submitted;
+						errors, message, Uploaded;
 
 					validator.settings.messages[ element.name ].remote = previous.originalMessage;
 					if ( valid ) {
-						submitted = validator.formSubmitted;
+						Uploaded = validator.formSubmitted;
 						validator.prepareElement( element );
-						validator.formSubmitted = submitted;
+						validator.formSubmitted = Uploaded;
 						validator.successList.push( element );
 						delete validator.invalid[ element.name ];
 						validator.showErrors();

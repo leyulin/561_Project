@@ -50,7 +50,7 @@ namespace AnimeCollections.Pages.Animes
                 return NotFound();
             }
 
-            var contactOperation = (status == Status.Approved)
+            var contactOperation = (status == Status.Allowed)
                                                        ? Operations.Approve
                                                        : Operations.Reject;
 

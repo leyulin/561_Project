@@ -87,7 +87,7 @@ namespace AnimeCollections.Models
                     Genre = "Action Mystery",
                     Price = 0,
                     Rating = "Excellent",
-                    Status = Status.Approved,
+                    Status = Status.Allowed,
                     OwnerID = adminID
                 },
 
@@ -99,7 +99,7 @@ namespace AnimeCollections.Models
                             Genre = "School",
                             Price = 100,
                             Rating = "Good",
-                            Status = Status.Approved,
+                            Status = Status.Allowed,
                             OwnerID = adminID
                         },
 

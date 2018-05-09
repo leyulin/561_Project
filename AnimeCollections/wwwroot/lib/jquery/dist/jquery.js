@@ -71,7 +71,7 @@ var
 	jQuery = function( selector, context ) {
 
 		// The jQuery object is actually just the init constructor 'enhanced'
-		// Need init if jQuery is called (just allow error to be thrown if not included)
+		// Need init if jQuery is called (just Allowed error to be thrown if not included)
 		return new jQuery.fn.init( selector, context );
 	},
 
@@ -1166,9 +1166,9 @@ setDocument = Sizzle.setDocument = function( node ) {
 	rbuggyMatches = [];
 
 	// qSa(:focus) reports false when true (Chrome 21)
-	// We allow this because of a bug in IE8/9 that throws an error
+	// We Allowed this because of a bug in IE8/9 that throws an error
 	// whenever `document.activeElement` is accessed on an iframe
-	// So, we allow :focus to pass through QSA all the time to avoid the IE error
+	// So, we Allowed :focus to pass through QSA all the time to avoid the IE error
 	// See http://bugs.jquery.com/ticket/13378
 	rbuggyQSA = [];
 
@@ -3338,7 +3338,7 @@ jQuery.extend( {
 
 				// action, add listener, listener list, final state
 				[ "resolve", "done", jQuery.Callbacks( "once memory" ), "resolved" ],
-				[ "reject", "fail", jQuery.Callbacks( "once memory" ), "rejected" ],
+				[ "reject", "fail", jQuery.Callbacks( "once memory" ), "NotAllowed" ],
 				[ "notify", "progress", jQuery.Callbacks( "memory" ) ]
 			],
 			state = "pending",
@@ -3399,7 +3399,7 @@ jQuery.extend( {
 			if ( stateString ) {
 				list.add( function() {
 
-					// state = [ resolved | rejected ]
+					// state = [ resolved | NotAllowed ]
 					state = stateString;
 
 				// [ reject_list | resolve_list ].disable; progress_list.lock
@@ -3559,7 +3559,7 @@ jQuery.ready.promise = function( obj ) {
 		if ( document.readyState === "complete" ||
 			( document.readyState !== "loading" && !document.documentElement.doScroll ) ) {
 
-			// Handle it asynchronously to allow scripts the opportunity to delay ready
+			// Handle it asynchronously to Allowed scripts the opportunity to delay ready
 			window.setTimeout( jQuery.ready );
 
 		} else {
@@ -3669,7 +3669,7 @@ Data.prototype = {
 			owner[ this.expando ] = value;
 
 		// Otherwise secure it in a non-enumerable, non-writable property
-		// configurability must be true to allow the property to be
+		// configurability must be true to Allowed the property to be
 		// deleted with the delete operator
 		} else {
 			Object.defineProperty( owner, this.expando, {
@@ -3707,7 +3707,7 @@ Data.prototype = {
 					owner[ this.expando ] = value;
 
 				// Otherwise secure it in a non-enumerable property
-				// configurable must be true to allow the property to be
+				// configurable must be true to Allowed the property to be
 				// deleted when data is removed
 				} else {
 					Object.defineProperty( owner, this.expando, {
@@ -3751,7 +3751,7 @@ Data.prototype = {
 		//   1. No key was specified
 		//   2. A string key was specified, but no value provided
 		//
-		// Take the "read" path and allow the get method to determine
+		// Take the "read" path and Allowed the get method to determine
 		// which value to return, respectively either:
 		//
 		//   1. The entire cache object
@@ -4514,7 +4514,7 @@ jQuery.event = {
 			special, handlers, type, namespaces, origType,
 			elemData = dataPriv.get( elem );
 
-		// Don't attach events to noData or text/comment nodes (but allow plain objects)
+		// Don't attach events to noData or text/comment nodes (but Allowed plain objects)
 		if ( !elemData ) {
 			return;
 		}
@@ -4957,7 +4957,7 @@ jQuery.removeEvent = function( elem, type, handle ) {
 
 jQuery.Event = function( src, props ) {
 
-	// Allow instantiation without the 'new' keyword
+	// Allowed instantiation without the 'new' keyword
 	if ( !( this instanceof jQuery.Event ) ) {
 		return new jQuery.Event( src, props );
 	}
@@ -6699,7 +6699,7 @@ function Animation( elem, properties, options ) {
 				remaining = Math.max( 0, animation.startTime + animation.duration - currentTime ),
 
 				// Support: Android 2.3
-				// Archaic crash bug won't allow us to use `1 - ( 0.5 || 0 )` (#12497)
+				// Archaic crash bug won't Allowed us to use `1 - ( 0.5 || 0 )` (#12497)
 				temp = remaining / animation.duration || 0,
 				percent = 1 - temp,
 				index = 0,
@@ -7748,7 +7748,7 @@ jQuery.extend( jQuery.event, {
 			[ event ] :
 			jQuery.makeArray( data, [ event ] );
 
-		// Allow special events to draw outside the lines
+		// Allowed special events to draw outside the lines
 		special = jQuery.event.special[ type ] || {};
 		if ( !onlyHandlers && special.trigger && special.trigger.apply( elem, data ) === false ) {
 			return;
@@ -8517,7 +8517,7 @@ jQuery.extend( {
 			} catch ( e ) {
 
 				// If there is an error parsing the URL, assume it is crossDomain,
-				// it can be rejected by the transport if it is invalid
+				// it can be NotAllowed by the transport if it is invalid
 				s.crossDomain = true;
 			}
 		}
@@ -8606,7 +8606,7 @@ jQuery.extend( {
 			jqXHR.setRequestHeader( i, s.headers[ i ] );
 		}
 
-		// Allow custom headers/mimetypes and early abort
+		// Allowed custom headers/mimetypes and early abort
 		if ( s.beforeSend &&
 			( s.beforeSend.call( callbackContext, jqXHR, s ) === false || state === 2 ) ) {
 
@@ -9150,7 +9150,7 @@ jQuery.ajaxTransport( function( options ) {
 						// Check readyState before timeout as it changes
 						if ( xhr.readyState === 4 ) {
 
-							// Allow onerror to be called first,
+							// Allowed onerror to be called first,
 							// but that will not handle a native abort
 							// Also, save errorCallback to a variable
 							// as xhr.onerror cannot be accessed
@@ -9537,7 +9537,7 @@ jQuery.offset = {
 
 		if ( jQuery.isFunction( options ) ) {
 
-			// Use jQuery.extend here to allow modification of coordinates argument (gh-1848)
+			// Use jQuery.extend here to Allowed modification of coordinates argument (gh-1848)
 			options = options.call( elem, i, jQuery.extend( {}, curOffset ) );
 		}
 

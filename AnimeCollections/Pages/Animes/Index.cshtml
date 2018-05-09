@@ -6,7 +6,7 @@
 }
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create"> Create</a>
 </p>
 
 <form>
@@ -96,7 +96,7 @@
                      Operations.Delete)).Succeeded)
                     {
                         <text> | </text>
-                        <a asp-page="./Delete" asp-route-id="@item.ID">Ban</a>
+                        <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
                     }
                 </td>
             </tr>

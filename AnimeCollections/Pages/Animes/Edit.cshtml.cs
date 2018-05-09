@@ -84,19 +84,19 @@ namespace AnimeCollections.Pages.Animes
 
             Context.Attach(Anime).State = EntityState.Modified;
 
-            if (anime.Status == Status.Approved)
+            if (anime.Status == Status.Allowed)
             {
                 // If the Anime is updated after approval, 
                 // and the user cannot approve,
-                // set the status back to submitted so the update can be
-                // checked and approved.
+                // set the status back to Uploaded so the update can be
+                // checked and Allowed.
                 var canApprove = await AuthorizationService.AuthorizeAsync(User,
                                         anime,
                                         Operations.Approve);
 
                 if (!canApprove.Succeeded)
                 {
-                    Anime.Status = Status.Submitted;
+                    Anime.Status = Status.Uploaded;
                 }
             }
 #endregion

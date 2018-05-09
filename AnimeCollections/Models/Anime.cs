@@ -44,9 +44,9 @@ namespace AnimeCollections.Models
 
     public enum Status
     {
-        Submitted,
-        Approved,
-        Rejected
+        Uploaded,
+        Allowed,
+        NotAllowed
     }
 
 }

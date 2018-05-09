@@ -48,28 +48,33 @@
 </div>
 
 
-@if (Model.Anime.Status != Status.Approved)
+@if (Model.Anime.Status != Status.Allowed)
 {
     @if ((await AuthorizationService.AuthorizeAsync(
       User, Model.Anime, Operations.Approve)).Succeeded)
     {
         <form style="display:inline;" method="post">
+            <p><br> As long is <b>not</b> Voilent Adult Blood content ok to publish<br /></p>
             <input type="hidden" name="id" value="@Model.Anime.ID" />
-            <input type="hidden" name="status" value="@Status.Approved" />
-            <button type="submit" class="btn btn-xs btn-success">Approve</button>
+            <input type="hidden" name="status" value="@Status.Allowed" />
+            <button type="submit" class="btn btn-xs btn-success">Okay to Publish</button>
         </form>
     }
 }
 
-@if (Model.Anime.Status != Status.Rejected)
+@if (Model.Anime.Status != Status.NotAllowed)
 {
     @if ((await AuthorizationService.AuthorizeAsync(
       User, Model.Anime, Operations.Reject)).Succeeded)
     {
         <form style="display:inline;" method="post">
+            <p>
+                <br><font size="10"><b>Heads Up!</b></font><br />
+                <br> Heads Up!  <b>Voilent Adult Blood </b>Content Should be Prohibitted<br />
+            </p>
             <input type="hidden" name="id" value="@Model.Anime.ID" />
-            <input type="hidden" name="status" value="@Status.Rejected" />
-            <button type="submit" class="btn btn-xs btn-success">Reject</button>
+            <input type="hidden" name="status" value="@Status.NotAllowed" />
+            <button type="submit" class="btn btn-xs btn-success"> Not Allow to Publish</button>
         </form>
     }
 }
@@ -85,8 +90,3 @@
     <a asp-page="./Index">Back to List</a>
 </div>
 
-
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Anime.ID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>

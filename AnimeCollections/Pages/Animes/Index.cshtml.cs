@@ -84,11 +84,11 @@ namespace AnimeCollections.Pages.Animes
 
             var currentUserId = UserManager.GetUserId(User);
 
-            // Only approved contacts are shown UNLESS you're authorized to see them
+            // Only Allowed contacts are shown UNLESS you're authorized to see them
             // or you are the owner.
             if (!isAuthorized)
             {
-                AnimeList = AnimeList.Where(c => c.Status == Status.Approved
+                AnimeList = AnimeList.Where(c => c.Status == Status.Allowed
                                             || c.OwnerID == currentUserId);
             }
             Animes = await AnimeList.ToListAsync();

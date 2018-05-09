@@ -871,7 +871,7 @@ $.validator.addMethod("skip_or_fill_minimum", function(value, element, options) 
  *     includeMilitary: false
  *  }
  *
- *  Only allow capital letters, no territories, no military zones
+ *  Only Allowed capital letters, no territories, no military zones
  *  stateInput: {
  *     caseSensitive: false
  *  }
@@ -881,7 +881,7 @@ $.validator.addMethod("skip_or_fill_minimum", function(value, element, options) 
  *     includeTerritories: true
  *  }
  *
- *  Only allow capital letters, include territories and military zones
+ *  Only Allowed capital letters, include territories and military zones
  *  stateInput: {
  *     caseSensitive: true,
  *     includeTerritories: true,
