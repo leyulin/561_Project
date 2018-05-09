@@ -1,7 +1,8 @@
 **561_Project**
 
 In this project I use asp 2.0 razor page 
-implemented a AnimeCollection site:  http://animecollections20180508060239.azurewebsites.net
+implemented a AnimeCollection site:   https://animecollections20180509032341.azurewebsites.net/
+
 
 For Demo You can use three account below:
 
