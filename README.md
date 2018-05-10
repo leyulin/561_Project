@@ -4,6 +4,7 @@ In this project I use asp 2.0 razor page
 implemented a AnimeCollection site:   https://animecollections20180509032341.azurewebsites.net/
 
 
+
 For Demo You can use three account below:
 
 Website Manager Account:
@@ -17,6 +18,8 @@ Asdf1234.
 Website User Account:
 **CompeUser@com**
 Abcd1234.
+
+**(SeedData.cs) path: ~/Models/SeedData.cs Cotains some sample datas **
 
 **Fuctionalities For EachRoles**
 
