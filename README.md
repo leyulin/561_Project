@@ -19,7 +19,7 @@ Website User Account:
 **CompeUser@com**
 Abcd1234.
 
-**(SeedData.cs) path: ~/Models/SeedData.cs Cotains some sample datas **
+**(SeedData.cs) path: ~/Models/SeedData.cs Cotains some sample datas**
 
 **Fuctionalities For EachRoles**
 
